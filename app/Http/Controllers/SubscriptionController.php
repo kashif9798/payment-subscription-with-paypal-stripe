@@ -74,7 +74,7 @@ class SubscriptionController extends Controller
             'first_name'        => ['required'],
             'last_name'         => ['required'],
             'email'             => ['required', 'email'],
-            'plan'              => ['required', 'exists:plans,slug'],
+            'plan'              => ['required'],
             'payment_platform'  => ['required'],
         ];
 
@@ -106,7 +106,7 @@ class SubscriptionController extends Controller
     public function approval(Request $request)
     {
         $rules = [
-            'plan'              => ['required', 'exists:plans,slug']
+            'plan'              => ['required']
         ];
 
         $request->validate($rules);
